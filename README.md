@@ -5,6 +5,8 @@ A Hobknob client initialisation plugin for Hapi. This is used so the Hobknob cli
 
 [![Build Status](https://travis-ci.org/opentable/hapi-hobknob-client.svg)](https://travis-ci.org/opentable/hapi-hobknob-client)
 
+[![NPM](https://nodei.co/npm/hapi-hobknob-client.png)](https://nodei.co/npm/hapi-hobknob-client)
+
 Usage:
 
 ```javascript
