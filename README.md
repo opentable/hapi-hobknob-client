@@ -1,7 +1,7 @@
 hapi-hobknob-client
 ===================
 
-A Hoobknob client initialisation plugin for Hapi. This is used so the Hobknob client can be initialised as part of the plugin pipeline. 
+A Hobknob client initialisation plugin for Hapi. This is used so the Hobknob client can be initialised as part of the plugin pipeline. 
 
 
 Usage:
