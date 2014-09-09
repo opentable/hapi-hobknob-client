@@ -18,6 +18,7 @@ server.pack.register({
   plugin: require("hapi-hobknob-client"),
   options: {
     client: new Client("application-name", { etcdHost: "127.0.0.1", etcdPort: 4001 }),
+    log: function(msg){}
   }
 });
 

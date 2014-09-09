@@ -13,7 +13,8 @@ describe('Hobknob initialisation tests', function(){
         initialise: function(callback){
           isInitialised = true;
           callback();
-        }
+        },
+        on: function(a, b) { }
       };
 
     p.register(plugin, {
