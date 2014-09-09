@@ -6,6 +6,10 @@ exports.register = function(plugin, options, next) {
     return;
   }
 
+  options.client.on("error", function(err) {
+    options.log(err);
+  });
+
   options.client.initialise(function(err){
 
     if (err){
