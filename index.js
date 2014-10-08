@@ -7,7 +7,7 @@ exports.register = function(plugin, options, next) {
   }
 
   options.client.on("error", function(err) {
-    options.log(err);
+    plugin.log(["hobknob-client", "error"], err);
   });
 
   options.client.initialise(function(err){
