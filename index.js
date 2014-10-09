@@ -13,7 +13,13 @@ exports.register = function(plugin, options, next) {
   options.client.initialise(function(err){
 
     if (err){
-      next(err);
+        if (options.initFailsAreFatal) {
+            next(err);
+        } else {
+            var highLevelError = new Error("The Hobknob client couldn't talk to the hobknob server, values will be the defaults until a sync successfully occurs");
+            highLevelError.inner = err;
+            plugin.log(["hoknob-client", "error"], highLevelError);
+        }
     }
 
     plugin.log(["hoknob-client"], "Hobknob initialized");
