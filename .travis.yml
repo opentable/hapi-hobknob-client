@@ -4,6 +4,7 @@ node_js:
 before_install:
 - npm install -g grunt-cli
 deploy:
+  clean_up: false
   provider: npm
   email: ajroyle@gmail.com
   api_key:
