@@ -9,6 +9,6 @@ deploy:
   api_key:
     secure: WM7sHNV1Xrke0mjC64+x5j7OWrxCY1NALYo/imENNIQ24ZbPRg4UxRvow+0G3smbO6fZyn0GsIbsuO0f/2mTrJAdLh9X8nwuVRHs7JEKznmkySl+YshJiquna+Z1nL92IDV6NoiBQB90x5HsfXK58ib41cxXAh/eyfcNJWQaW08=
   on:
-    branch: master
+    all_branches: true 
     tags: true
     repo: opentable/hapi-hobknob-client
