@@ -7,8 +7,8 @@ deploy:
   provider: npm
   email: ajroyle@gmail.com
   api_key:
-    secure: H+jNkO457vNczlKu+CowLHU9WpZv4jo0V/PoqDQFA0Tz2Z9p6m+Fw1jRxVR/YBKnQaih3waoHqzCbIwLn5rd+SqOQ/2ccyxoKGJJaLqYbLwXHcO175S8EyXDPmpPUsaSse1EpY195mtwRKd6XLEFH48NAQZdD8NtFBsFwL3tJL0=
+    secure: NYtQUwk9lAeBAFdn/B4SnUJeJ94+jNQet4EKDBUVgAOfae0l7CTBNyrM/A0QEo7m2l/cP0Fpo/V0sTgg8fpqyUyqVA2xnP4HQ4AaMZZgd7NZS1FNBW3W3SZ/jE4c8nsGHajA89NCM4shQm/TzusbWpNbVU8PW4nHRewRuironqo=
   on:
-    all_branches: true
     tags: true
+    all_branches: true
     repo: opentable/hapi-hobknob-client
