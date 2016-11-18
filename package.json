@@ -4,7 +4,8 @@
   "description": "A Hoobknob client plugin for Hapi",
   "main": "index.js",
   "scripts": {
-    "test": "grunt"
+    "test": "grunt",
+    "lint": "eslint ./",
   },
   "repository": {
     "type": "git",
@@ -20,11 +21,8 @@
   },
   "homepage": "https://github.com/opentable/hapi-hobknob-client",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-mocha-test": "^0.11.0",
-    "should": "^4.0.4"
+    "eslint": "^3.3.1",
+    "eslint-config-defaults": "^9.0.0",
   },
   "dependencies": {
     "hobknob-client-nodejs": "^2.0.0"
