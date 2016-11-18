@@ -1,6 +1,6 @@
 
 # hapi-hobknob-client
-> Hapi plugin for returning an initialised hobknob client.
+> Hapi plugin for returning an initialised [hobknob client](https://github.com/opentable/hobknob-client-nodejs).
 
 [![Build Status](https://travis-ci.org/opentable/hapi-hobknob-client.svg?branch=master)](https://travis-ci.org/opentable/hapi-hobknob-client)
 [![Dependency Status](https://david-dm.org/opentable/hapi-hobknob-client.svg)](https://david-dm.org/opentable/hapi-hobknob-client)
@@ -41,6 +41,7 @@ server.plugins['hapi-hobknob-client'].getOrDefault('testToggle', true);
 ```
 
 ## Configuration
-
+```javascript
+Something about hobknob config
 
 ## Release History
