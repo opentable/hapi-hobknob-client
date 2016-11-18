@@ -20,7 +20,7 @@ server.register([
     {
         register: require('hapi-hobknob-client'),
         options = {
-          applicationName: 'cuisine-test',
+          applicationName: 'the-name-of-your-app-in-hobknob',
           Hobknob : {
             etcdPort: 4001,
             cacheIntervalMs: 30000,
