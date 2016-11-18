@@ -9,7 +9,7 @@
 
 ## Usage
 ```bash
-$ npm i hapi-ot-logger --save
+$ npm i hapi-hobknob-client --save
 ```
 
 ```javascript
@@ -24,7 +24,7 @@ server.register([
           Hobknob : {
             etcdPort: 4001,
             cacheIntervalMs: 30000,
-            etcdHost: 'hobknob-etcd-qa.otenv.com'
+            etcdHost: 'your-etcd-host-here'
           }
         }
     }
@@ -35,6 +35,9 @@ server.register([
 
     server.start();
 });
+
+server.plugins['hapi-hobknob-client'].getOrDefault('testToggle', true);
+
 ```
 
 ## Configuration
