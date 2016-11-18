@@ -1,3 +1,5 @@
+'use strict';
+
 const plugin = require('../hapi-ot-hobknob-init');
 const expect = require('expect.js');
 
@@ -31,6 +33,7 @@ describe('hobknob plugin ', () => {
                   next(err);
                 });
             });
+
 
             it('should expose client', () => {
               expect(server.plugins).to.have.property('hapi-ot-hobknob-init');
