@@ -27,5 +27,6 @@
     "should": "^4.0.4"
   },
   "dependencies": {
+    "hobknob-client-nodejs": "^2.0.0"
   }
 }
