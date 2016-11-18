@@ -32,7 +32,7 @@ describe('hobknob plugin ', () => {
             const Hobknob = {
               etcdPort: 4001,
               cacheIntervalMs: 30000,
-              etcdHost: 'hobknob-etcd-qa.otenv.com'
+              etcdHost: 'some-etc-host'
             }
 
             const options = {

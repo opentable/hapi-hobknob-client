@@ -1,7 +1,6 @@
 'use strict';
 
 let Client = require('hobknob-client-nodejs');
-const _      = require('lodash');
 
 const init = function(server, config, next){
 
@@ -22,14 +21,13 @@ const init = function(server, config, next){
           return client.getOrDefault(name, defaultValue);
       });
 
-
       next(err);
     });
 };
 
 module.exports.register = function(server, config, next){
 
-  if(_.has(config, 'Hobknob')){
+  if(config.Hobknob){
       return init(server, config, next);
   }
 
