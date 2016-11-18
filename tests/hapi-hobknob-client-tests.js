@@ -9,17 +9,12 @@ describe('hobknob plugin ', () => {
     describe('-- happy path', () => {
         describe('plugin initialised ', () => {
 
-            function hobknobMock (applicationName, config){};
+            function hobknobMock (applicationName, config){
+              this.on =  function (name, cb) { };
 
-            hobknobMock.prototype.on =  function (name, cb) {
-            };
+              this.initialise = function (cb) { cb(); };
 
-            hobknobMock.prototype.initialise = function (cb) {
-              cb();
-            };
-
-            hobknobMock.prototype.getOrDefault = function (name, defaultValue) {
-              return true;
+              this.getOrDefault = function (name, defaultValue) { return true;  };
             };
 
             plugin.__set__('Client', hobknobMock);
