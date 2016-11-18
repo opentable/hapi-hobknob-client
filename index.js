@@ -39,6 +39,5 @@ module.exports.register = function(server, config, next){
 };
 
 exports.register.attributes = {
-    name: 'hapi-ot-hobknob-init',
-    version: '1.0.0'
+    pkg: require('./package.json')
 };

@@ -1,6 +1,6 @@
 'use strict';
 
-const plugin = require('../hapi-ot-hobknob-init');
+const plugin = require('../index');
 const expect = require('expect.js');
 
 describe('hobknob plugin ', () => {
@@ -10,10 +10,10 @@ describe('hobknob plugin ', () => {
             const server = {
                 log: function(){},
                 plugins: {
-                  'hapi-ot-hobknob-init' : { }
+                  'hapi-hobknob-client' : { }
                 },
                 expose: function(key, value){
-                    this.plugins['hapi-ot-hobknob-init'][key] = value;
+                    this.plugins['hapi-hobknob-client'][key] = value;
                 }
             };
 
@@ -36,8 +36,8 @@ describe('hobknob plugin ', () => {
 
 
             it('should expose client', () => {
-              expect(server.plugins).to.have.property('hapi-ot-hobknob-init');
-              expect(server.plugins['hapi-ot-hobknob-init'].getOrDefault).to.be.a('function');
+              expect(server.plugins).to.have.property('hapi-hobknob-client');
+              expect(server.plugins['hapi-hobknob-client'].getOrDefault).to.be.a('function');
             });
         });
     });
@@ -47,7 +47,9 @@ describe('hobknob plugin ', () => {
 
             const server = {
                 log: function(){},
-                plugins: {},
+                plugins: {
+                  'hapi-hobknob-client' : { }
+                },
                 expose: function(key, value){
                     this.plugins[key] = value;
                 }
@@ -64,7 +66,8 @@ describe('hobknob plugin ', () => {
             });
 
             it('should not have plugin with matching name', () => {
-              expect(server.plugins).to.not.have.property('hapi-ot-hobknob-init');
+              expect(server.plugins).to.have.property('hapi-hobknob-client');
+              expect(server.plugins['hapi-hobknob-client'].getOrDefault).to.be.null;
             });
         });
     });
