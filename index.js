@@ -1,6 +1,6 @@
 'use strict';
 
-const Client = require('hobknob-client-nodejs');
+let Client = require('hobknob-client-nodejs');
 const _      = require('lodash');
 
 const init = function(server, config, next){

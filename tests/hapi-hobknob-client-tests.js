@@ -1,11 +1,28 @@
 'use strict';
 
-const plugin = require('../index');
 const expect = require('expect.js');
+const rewire = require('rewire');
+
+const plugin = rewire('../index');
 
 describe('hobknob plugin ', () => {
     describe('-- happy path', () => {
         describe('plugin initialised ', () => {
+
+            function hobknobMock (applicationName, config){};
+
+            hobknobMock.prototype.on =  function (name, cb) {
+            };
+
+            hobknobMock.prototype.initialise = function (cb) {
+              cb();
+            };
+
+            hobknobMock.prototype.getOrDefault = function (name, defaultValue) {
+              return true;
+            };
+
+            plugin.__set__('Client', hobknobMock);
 
             const server = {
                 log: function(){},
@@ -34,10 +51,10 @@ describe('hobknob plugin ', () => {
                 });
             });
 
-
             it('should expose client', () => {
               expect(server.plugins).to.have.property('hapi-hobknob-client');
               expect(server.plugins['hapi-hobknob-client'].getOrDefault).to.be.a('function');
+              expect(server.plugins['hapi-hobknob-client'].getOrDefault('test', false)).to.be.true;
             });
         });
     });
