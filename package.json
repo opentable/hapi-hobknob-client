@@ -4,7 +4,7 @@
   "description": "A Hobknob client plugin for Hapi",
   "main": "index.js",
   "scripts": {
-    "test": "grunt",
+    "test": "npm run lint && npm run mocha",
     "lint": "eslint ./",
     "mocha": "export NODE_ENV=development && istanbul cover _mocha -- tests --recursive --timeout 15000 --reporter ${MOCHA_REPORTER:-spec}"
   },
