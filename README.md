@@ -12,6 +12,7 @@
 $ npm i hapi-hobknob-client --save
 ```
 
+
 ```javascript
 var server = new (require('hapi').Server)();
 server.connection({ port: 3000 });
