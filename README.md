@@ -37,12 +37,15 @@ server.register([
     server.start();
 });
 
-server.plugins['hapi-hobknob-client'].getOrDefault('testToggle', true);
+//server can be found on the request object if you don't have server in the current function
+const testToggleEnabled = server.plugins['hapi-hobknob-client'].getOrDefault('testToggle', true);
 
 ```
 
 ## Configuration
-```javascript
-Something about hobknob config
+
+All config values are unchanged as per [hobknob client](https://github.com/opentable/hobknob-client-nodejs).
 
 ## Release History
+
+v2.0.0 - Richard Wright 04-01-2017
