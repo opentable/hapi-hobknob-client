@@ -9,8 +9,7 @@ const init = function(server, config, next){
     let initialised = false;
 
     client.on('error', function(err){
-        //server.log(['hobknob', 'error'], err);
-        console.error(err); // eslint-disable-line no-console
+        server.log(['hobknob', 'error'], err);
 
         initialised = false;
     });
@@ -18,17 +17,18 @@ const init = function(server, config, next){
     client.initialise(function(err){
 
       if(err){
-        console.log('hobknob init failed');
-        //server.log(['hobknob', 'error'], err);
+        server.log(['hobknob', 'init','error'], err);
+      } else {
+        initialised = true;
       }
-
-      initialised = true;
 
       server.expose('getOrDefault', function (name, defaultValue) {
 
         if(initialised){
           return client.getOrDefault(name, defaultValue);
-        } else { return false; }
+        } else {
+          return false;
+        }
       });
 
       next();
