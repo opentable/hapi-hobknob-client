@@ -6,22 +6,32 @@ const init = function(server, config, next){
 
     const client = new Client(config.applicationName, config.Hobknob);
 
+    let initialised = false;
+
     client.on('error', function(err){
-        server.log(['hobknob', 'error'], err);
+        //server.log(['hobknob', 'error'], err);
+        console.error(err); // eslint-disable-line no-console
+
+        initialised = false;
     });
 
     client.initialise(function(err){
 
       if(err){
-        console.log('init failed');
-        server.log(['hobknob', 'error'], err);
+        console.log('hobknob init failed');
+        //server.log(['hobknob', 'error'], err);
       }
 
+      initialised = true;
+
       server.expose('getOrDefault', function (name, defaultValue) {
+
+        if(initialised){
           return client.getOrDefault(name, defaultValue);
+        } else { return false; }
       });
 
-      next(err);
+      next();
     });
 };
 
