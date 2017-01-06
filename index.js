@@ -38,7 +38,8 @@ const init = function(server, config, next){
     };
 
     async.retry({
-        times: 10,
+        //will retry for two weeks
+        times: 14400,
         interval: function(retryCount) {
           let newInterval = 500 * Math.pow(3, retryCount);
           if(newInterval >= 120000) {
