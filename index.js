@@ -1,38 +1,57 @@
 'use strict';
 
-let Client = require('hobknob-client-nodejs');
+const async = require('async');
+let Client  = require('hobknob-client-nodejs');
+
+const exposeFunction = function(server, client, initialised){
+  server.expose('getOrDefault', function (name, defaultValue) {
+
+    if(initialised){
+        return client.getOrDefault(name, defaultValue);
+    } else {
+        return defaultValue;
+    }
+  });
+};
 
 const init = function(server, config, next){
 
     const client = new Client(config.applicationName, config.Hobknob);
 
-    let initialised = false;
-
     client.on('error', function(err){
         server.log(['hobknob', 'error'], err);
-
-        initialised = false;
     });
 
-    client.initialise(function(err){
+    const retryInitWrapper = function(callback, results) {
 
-      if(err){
-        server.log(['hobknob', 'init','error'], err);
-      } else {
-        initialised = true;
-      }
-
-      server.expose('getOrDefault', function (name, defaultValue) {
-
-        if(initialised){
-          return client.getOrDefault(name, defaultValue);
+      client.initialise(function(err){
+        if(err){
+            server.log(['hobknob', 'init','error'], err);
+            exposeFunction(server, client, false);
+            callback(err);
         } else {
-          return defaultValue;
+            server.log(['hobknob', 'init'], 'hobknob now initialised');
+            exposeFunction(server, client, true);
+            callback(null, 'hobknob now initialised');
         }
       });
+    };
 
-      next();
+    async.retry({
+        times: 10,
+        interval: function(retryCount) {
+          let newInterval = 500 * Math.pow(3, retryCount);
+          if(newInterval >= 120000) {
+            newInterval = 120000;
+          };
+          return newInterval;
+        }
+      }, retryInitWrapper, function(err, result) {
+        console.log('retry error:' + err);
+        console.log('result: ' + result);
     });
+
+    next();
 };
 
 module.exports.register = function(server, config, next){
