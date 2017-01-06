@@ -27,7 +27,7 @@ const init = function(server, config, next){
         if(initialised){
           return client.getOrDefault(name, defaultValue);
         } else {
-          return false;
+          return defaultValue;
         }
       });
 
