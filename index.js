@@ -22,7 +22,7 @@ const init = function(server, config, next){
         server.log(['hobknob', 'error'], err);
     });
 
-    const retryInitWrapper = function(callback, results) {
+    const retryInitWrapper = function(callback) {
 
       client.initialise(function(err){
         if(err){
@@ -44,7 +44,7 @@ const init = function(server, config, next){
           let newInterval = 500 * Math.pow(3, retryCount);
           if(newInterval >= 120000) {
             newInterval = 120000;
-          };
+          }
           return newInterval;
         }
       }, retryInitWrapper, function(err, result) {
