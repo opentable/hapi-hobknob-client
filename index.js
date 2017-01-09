@@ -41,11 +41,11 @@ const init = function(server, config, next){
         //will retry for two weeks
         times: 14400,
         interval: function(retryCount) {
-          let newInterval = 500 * Math.pow(3, retryCount);
-          if(newInterval >= 120000) {
-            newInterval = 120000;
-          }
-          return newInterval;
+          const initialInterval = 250; // msec
+          const maxInterval = 128000; // msec
+          const jitter = Math.random() * (1.1 - 0.9) + 0.9; // [0.9 - 1.1]
+
+          return Math.min(maxInterval, initialInterval * Math.pow(2, retryCount - 1)) * jitter;
         }
       }, retryInitWrapper, function(err, result) {
         console.log('retry error:' + err);
