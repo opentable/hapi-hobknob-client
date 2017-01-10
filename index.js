@@ -45,7 +45,11 @@ const init = function(server, config, next){
           const maxInterval = 128000; // msec
           const jitter = Math.random() * (1.1 - 0.9) + 0.9; // [0.9 - 1.1]
 
-          return Math.min(maxInterval, initialInterval * Math.pow(2, retryCount - 1)) * jitter;
+          const interval = Math.min(maxInterval, initialInterval * Math.pow(2, retryCount - 1)) * jitter;
+
+          server.log(['hobknob', 'init'], `retrying hobknob init no: ${retryCount}, interval: ${interval}`);
+
+          return interval;
         }
       }, retryInitWrapper, function(err, result) {
         console.log('retry error:' + err);
