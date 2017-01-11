@@ -1,6 +1,6 @@
 {
   "name": "hapi-hobknob-client",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "A Hobknob client plugin for Hapi",
   "main": "index.js",
   "scripts": {
@@ -30,6 +30,7 @@
     "rewire": "^2.5.2"
   },
   "dependencies": {
+    "async": "^2.1.4",
     "hobknob-client-nodejs": "^2.0.0"
   }
 }
