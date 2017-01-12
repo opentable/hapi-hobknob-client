@@ -49,3 +49,4 @@ All config values are unchanged as per [hobknob client](https://github.com/opent
 ## Release History
 
 v2.0.0 - Richard Wright 04-01-2017
+ 
