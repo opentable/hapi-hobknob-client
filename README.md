@@ -1,5 +1,10 @@
+# Important
 
-# hapi-hobknob-client
+Hobknob is deprecated and no longer actively supported. 
+
+If you are a contributor willing to take this project over then please get in touch via [search-experience@opentable.com](mailto:search-experience@opentable.com)
+
+## hapi-hobknob-client
 > Hapi plugin for returning an initialised [hobknob client](https://github.com/opentable/hobknob-client-nodejs).
 
 [![Build Status](https://travis-ci.org/opentable/hapi-hobknob-client.svg?branch=master)](https://travis-ci.org/opentable/hapi-hobknob-client)
