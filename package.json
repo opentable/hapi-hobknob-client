@@ -6,7 +6,9 @@
   "scripts": {
     "test": "npm run lint && npm run mocha",
     "lint": "eslint ./",
-    "mocha": "export NODE_ENV=development && istanbul cover _mocha -- tests --recursive --timeout 15000 --reporter ${MOCHA_REPORTER:-spec}"
+    "mocha": "export NODE_ENV=development && istanbul cover _mocha -- tests --recursive --timeout 15000 --reporter ${MOCHA_REPORTER:-spec}",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -31,6 +33,8 @@
   },
   "dependencies": {
     "async": "^2.1.4",
-    "hobknob-client-nodejs": "^2.0.0"
-  }
+    "hobknob-client-nodejs": "^2.0.0",
+    "snyk": "^1.88.0"
+  },
+  "snyk": true
 }
